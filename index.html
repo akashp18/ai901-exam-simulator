@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Azure AI Fundamentals (AI-901) Ultimate Exam Simulator</title>
+    <meta name="description" content="Prepare for the Microsoft AI-901 Certification Exam with our high-fidelity, adaptive Pearson VUE simulation containing 210 realistic questions, 5 question types, CLI controls, and deep performance analytics.">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts for sleek premium look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+
+    <div class="app-container">
+        
+        <!-- ================= WELCOME DASHBOARD ================= -->
+        <main id="dashboard-view" class="view-panel active">
+            <header class="hero-header">
+                <div class="azure-logo">▲</div>
+                <h1>Microsoft Azure AI Fundamentals</h1>
+                <p class="subtitle">AI-901 Certification Simulation Practice Environment</p>
+            </header>
+
+            <section class="dashboard-grid">
+                <!-- Exam Guidelines Card -->
+                <article class="info-card rules-card">
+                    <h2>Exam Rules & Guidelines</h2>
+                    <ul class="clean-list">
+                        <li><strong>Passing Score:</strong> 700 out of 1000 points</li>
+                        <li><strong>Exam Length:</strong> 50 Questions (Drawn from a pool of 210)</li>
+                        <li><strong>Target Ratios:</strong> 20% Easy, 50% Medium, 30% Hard</li>
+                        <li><strong>Objective coverage:</strong> AI Concepts (40-45%), Microsoft Foundry AI Solutions (55-60%)</li>
+                        <li><strong>Anti-Repetition Engine:</strong> Generates unique exams prioritizing questions you have not seen or have previously failed.</li>
+                        <li><strong>Pearson VUE Layout:</strong> Standard single-question view with navigation panel and review marks.</li>
+                    </ul>
+                </article>
+
+                <!-- Commands Index Card -->
+                <article class="info-card CLI-card">
+                    <h2>CLI Command Bar Interface</h2>
+                    <p>In addition to clicking buttons, you can interact with the simulator using the command line bar at the bottom of the exam view:</p>
+                    <table class="cli-table">
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><code class="cmd-code">/next</code></td><td>Navigate to the next question</td></tr>
+                            <tr><td><code class="cmd-code">/prev</code></td><td>Navigate to the previous question</td></tr>
+                            <tr><td><code class="cmd-code">/mark</code></td><td>Mark the current question for review</td></tr>
+                            <tr><td><code class="cmd-code">/unmark</code></td><td>Unmark the current question</td></tr>
+                            <tr><td><code class="cmd-code">/review</code></td><td>Open/Close the question review sidebar drawer</td></tr>
+                            <tr><td><code class="cmd-code">/status</code></td><td>Display current progress in CLI status logs</td></tr>
+                            <tr><td><code class="cmd-code">/submit</code></td><td>Submit the exam for immediate grading</td></tr>
+                        </tbody>
+                    </table>
+                </article>
+            </section>
+
+            <!-- Pool Statistics Widget -->
+            <section class="pool-stats-card">
+                <h2>📊 Question Pool Statistics</h2>
+                <div class="pool-stats-grid">
+                    <div class="pool-stat-item">
+                        <span class="pool-stat-label">Total Questions</span>
+                        <span class="pool-stat-value">210</span>
+                        <span class="pool-stat-sub">Across all domains</span>
+                    </div>
+                    <div class="pool-stat-item">
+                        <span class="pool-stat-label">Per-Exam Draw</span>
+                        <span class="pool-stat-value">50</span>
+                        <span class="pool-stat-sub">Adaptively selected</span>
+                    </div>
+                    <div class="pool-stat-item">
+                        <span class="pool-stat-label">Obj 1 Easy</span>
+                        <span class="pool-stat-value pool-coverage-good">7.0×</span>
+                        <span class="pool-stat-sub">28 pool / 4 draw</span>
+                    </div>
+                    <div class="pool-stat-item">
+                        <span class="pool-stat-label">Obj 1 Medium</span>
+                        <span class="pool-stat-value pool-coverage-good">3.2×</span>
+                        <span class="pool-stat-sub">35 pool / 11 draw</span>
+                    </div>
+                    <div class="pool-stat-item">
+                        <span class="pool-stat-label">Obj 1 Hard</span>
+                        <span class="pool-stat-value pool-coverage-good">2.2×</span>
+                        <span class="pool-stat-sub">13 pool / 6 draw</span>
+                    </div>
+                    <div class="pool-stat-item">
+                        <span class="pool-stat-label">Obj 2 Easy</span>
+                        <span class="pool-stat-value pool-coverage-good">5.6×</span>
+                        <span class="pool-stat-sub">34 pool / 6 draw</span>
+                    </div>
+                    <div class="pool-stat-item">
+                        <span class="pool-stat-label">Obj 2 Medium</span>
+                        <span class="pool-stat-value pool-coverage-good">5.1×</span>
+                        <span class="pool-stat-sub">72 pool / 14 draw</span>
+                    </div>
+                    <div class="pool-stat-item">
+                        <span class="pool-stat-label">Obj 2 Hard</span>
+                        <span class="pool-stat-value pool-coverage-good">3.1×</span>
+                        <span class="pool-stat-sub">28 pool / 9 draw</span>
+                    </div>
+                    <div class="pool-stat-item">
+                        <span class="pool-stat-label">Exam Variety</span>
+                        <span class="pool-stat-value pool-coverage-good">4.2×</span>
+                        <span class="pool-stat-sub">Unique exams before repeat</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Previous Attempts History -->
+            <section class="history-section">
+                <h2>Your Mock Exam History</h2>
+                <div class="table-scroll">
+                    <table id="history-table" class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Date/Time</th>
+                                <th>Score (100-1000)</th>
+                                <th>Result</th>
+                                <th>Correct Questions</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-tbody">
+                            <!-- Injected dynamically by JS -->
+                            <tr>
+                                <td colspan="5" class="no-history">No exam attempts found in database. Start a new exam to begin tracking.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <div class="actions-panel" style="flex-direction: column; align-items: center; gap: 15px;">
+                <button id="start-exam-btn" class="action-btn primary-btn large-btn">Start Practice Exam</button>
+                <p class="troubleshoot-note" style="font-size: 0.85rem; color: var(--text-secondary); max-width: 600px; text-align: center; line-height: 1.4; border-top: 1px solid var(--border-color); padding-top: 15px; margin-top: 5px;">
+                    🔑 <strong>Troubleshoot Connection:</strong> If you see a connection error, make sure to type <code>http://localhost:8000</code> explicitly. If your browser automatically redirects to HTTPS, try opening a private/incognito window, or delete the HSTS domain policy for <code>localhost</code> in <code>chrome://net-internals/#hsts</code>.
+                </p>
+            </div>
+        </main>
+
+        <!-- ================= ACTIVE EXAM PLAYER ================= -->
+        <main id="exam-view" class="view-panel">
+            <!-- Exam Header Status -->
+            <header class="exam-header">
+                <div class="exam-title-area">
+                    <span class="exam-code-tag">AI-901</span>
+                    <h2>Active Exam Session</h2>
+                </div>
+                <div class="exam-progress-container">
+                    <div class="progress-details">
+                        <span id="question-progress-text">Question 1 of 50</span>
+                        <span id="exam-timer">00:00:00</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div id="progress-bar-fill" class="progress-bar-fill" style="width: 2%;"></div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="exam-layout">
+                <!-- Sidebar Question Grid (Collapsible/Toggleable) -->
+                <aside id="sidebar-drawer" class="sidebar-drawer open">
+                    <div class="drawer-header">
+                        <h3>Question Grid</h3>
+                        <button id="toggle-drawer-btn" class="icon-btn" title="Toggle Grid Panel">◂</button>
+                    </div>
+                    <div class="matrix-legend">
+                        <span class="legend-item"><span class="badge badge-unanswered"></span> Unanswered</span>
+                        <span class="legend-item"><span class="badge badge-answered"></span> Answered</span>
+                        <span class="legend-item"><span class="badge badge-marked"></span> Review</span>
+                    </div>
+                    <nav id="question-grid" class="question-grid">
+                        <!-- 50 buttons injected by JS -->
+                    </nav>
+                </aside>
+
+                <!-- Question Workspace -->
+                <section class="question-workspace">
+                    <!-- Question Metadata Header -->
+                    <div class="question-meta">
+                        <span id="q-meta-objective" class="meta-badge">Objective 1</span>
+                        <span id="q-meta-difficulty" class="meta-badge uppercase">Medium</span>
+                        <span id="q-meta-topic" class="meta-badge info-badge">Responsible AI: Fairness</span>
+                        <span id="q-meta-type" class="meta-badge type-badge">Single Choice</span>
+                    </div>
+
+                    <!-- Scenario Card -->
+                    <div id="q-scenario-card" class="scenario-card">
+                        <span class="card-label">SCENARIO DETAILS:</span>
+                        <p id="q-scenario-text">Scenario text goes here...</p>
+                    </div>
+
+                    <!-- Question Prompt -->
+                    <div class="question-prompt">
+                        <h3 id="q-prompt-text">Question prompt goes here...</h3>
+                    </div>
+
+                    <!-- Dynamic Interactive Answers Container -->
+                    <form id="answers-form" onsubmit="event.preventDefault();">
+                        <div id="answers-container" class="answers-container">
+                            <!-- Dynamic inputs injected here by app.js -->
+                        </div>
+                    </form>
+                </section>
+            </div>
+
+            <!-- Footer Controls Bar -->
+            <footer class="exam-footer">
+                <div class="nav-controls">
+                    <button id="prev-btn" class="control-btn outline-btn">◀ Previous</button>
+                    <label class="review-checkbox-label">
+                        <input type="checkbox" id="mark-review-chk">
+                        <span class="checkbox-custom"></span> Mark for Review
+                    </label>
+                    <button id="next-btn" class="control-btn outline-btn">Next ▶</button>
+                </div>
+                <div class="action-controls">
+                    <button id="submit-exam-btn" class="control-btn primary-btn submit-btn">Submit Exam</button>
+                </div>
+            </footer>
+
+            <!-- Bottom CLI Command Bar Interface -->
+            <div class="terminal-bar">
+                <div class="terminal-prompt">ai901-sim:~$</div>
+                <input type="text" id="terminal-input" placeholder="Type command here (e.g. /next, /mark, /status, /submit)..." autocomplete="off">
+                <div id="terminal-status-log" class="terminal-status-log">Session started. Type commands directly.</div>
+            </div>
+        </main>
+
+        <!-- ================= REPORT / ANALYTICS PANEL ================= -->
+        <main id="report-view" class="view-panel">
+            <header class="report-header">
+                <h1>Performance Diagnostics Report</h1>
+                <p id="report-session-id" class="session-id-label">Session ID: N/A</p>
+            </header>
+
+            <!-- Overall Score Banner -->
+            <section class="score-summary-card">
+                <div class="score-gauge-container">
+                    <svg class="score-radial-gauge" viewBox="0 0 100 100">
+                        <circle class="gauge-bg" cx="50" cy="50" r="45"></circle>
+                        <circle id="gauge-fill" class="gauge-fill" cx="50" cy="50" r="45" stroke-dasharray="283" stroke-dashoffset="283"></circle>
+                        <text id="gauge-text" x="50" y="55" class="gauge-score">100</text>
+                        <text x="50" y="70" class="gauge-max">/1000</text>
+                    </svg>
+                </div>
+                <div class="score-metrics-details">
+                    <div id="pass-fail-badge" class="result-badge pass-badge">PASS</div>
+                    <p>Passing Score Requirement: <strong>700</strong></p>
+                    <div class="probability-box">
+                        <span class="label">Probability of Passing the Real AI-901 Exam:</span>
+                        <h2 id="passing-prob-val">90%</h2>
+                        <span class="label">Overall Exam Readiness Level:</span>
+                        <h2 id="readiness-level-val">High Readiness</h2>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Metrics Breakdown Cards -->
+            <section class="report-grid-section">
+                <!-- Objective Breakdown -->
+                <div class="report-card">
+                    <h2>Objective-Level Breakdown</h2>
+                    <div class="metric-progress-item">
+                        <div class="progress-labels">
+                            <span>Objective 1: Describe AI concepts & capabilities (40-45%)</span>
+                            <span id="obj1-progress-label">0%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div id="obj1-progress-fill" class="progress-bar-fill accent-fill" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <div class="metric-progress-item">
+                        <div class="progress-labels">
+                            <span>Objective 2: Implement AI solutions using Foundry (55-60%)</span>
+                            <span id="obj2-progress-label">0%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div id="obj2-progress-fill" class="progress-bar-fill accent-fill" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Difficulty Breakdown -->
+                <div class="report-card">
+                    <h2>Difficulty-Level Breakdown</h2>
+                    <div class="metric-progress-item">
+                        <div class="progress-labels">
+                            <span>Easy Questions (20%)</span>
+                            <span id="diff-easy-label">0%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div id="diff-easy-fill" class="progress-bar-fill easy-fill" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <div class="metric-progress-item">
+                        <div class="progress-labels">
+                            <span>Medium Questions (50%)</span>
+                            <span id="diff-medium-label">0%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div id="diff-medium-fill" class="progress-bar-fill medium-fill" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <div class="metric-progress-item">
+                        <div class="progress-labels">
+                            <span>Hard Questions (30%)</span>
+                            <span id="diff-hard-label">0%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div id="diff-hard-fill" class="progress-bar-fill hard-fill" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Advanced Analytics: Gaps, Priorities, Service Confusions -->
+            <section class="advanced-analytics-section">
+                <h2>Advanced Performance Diagnostics</h2>
+                
+                <div class="diagnostics-grid">
+                    <!-- Service Confusions Panel -->
+                    <div class="diagnostics-card">
+                        <h3>Azure Service Confusion Analysis</h3>
+                        <p class="description">Identifies if you are confusing similar Azure features based on incorrect selections:</p>
+                        <div id="confusion-container" class="confusion-container">
+                            <!-- Dynamic blocks -->
+                            <div class="no-confusion">No service confusion detected in this attempt! Excellent.</div>
+                        </div>
+                    </div>
+
+                    <!-- Confidence Anomalies Panel -->
+                    <div class="diagnostics-card">
+                        <h3>Confidence-to-Accuracy Discrepancy</h3>
+                        <p class="description">Highlights patterns of uncertainty or misplaced confidence:<br>
+                        <small style="opacity:0.65;">&#8505; <em>Confidence is a computed proxy based on time spent and whether you flagged the question for review &mdash; not a self-reported value.</em></small></p>
+                        <div id="confidence-anomalies" class="anomalies-list">
+                            <!-- Dynamic items -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Domain Readiness Matrix -->
+                <div class="diagnostics-card full-width-card">
+                    <h3>Exam Readiness Matrix</h3>
+                    <div class="table-scroll">
+                        <table class="readiness-matrix-table">
+                            <thead>
+                                <tr>
+                                    <th>Objective Domain</th>
+                                    <th>Sub-Topic Area</th>
+                                    <th>Readiness %</th>
+                                    <th>Confidence % <small title="Computed proxy: high = answered quickly without marking for review">&#8505;</small></th>
+                                    <th>Risk Assessment</th>
+                                </tr>
+                            </thead>
+                            <tbody id="readiness-matrix-tbody">
+                                <!-- Dynamic rows -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Personalized Roadmap & Learn Links -->
+            <section class="personalized-strategy-section">
+                <h2>Personalized Practice Strategy</h2>
+                
+                <div class="roadmap-grid">
+                    <!-- Study Timeline -->
+                    <div class="strategy-card">
+                        <h3>3-Day Master Study Roadmap</h3>
+                        <div class="timeline-container">
+                            <div class="timeline-step">
+                                <div class="step-num">Day 1</div>
+                                <div class="step-details">
+                                    <ul id="roadmap-day1-list"></ul>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-num">Day 2</div>
+                                <div class="step-details">
+                                    <ul id="roadmap-day2-list"></ul>
+                                </div>
+                            </div>
+                            <div class="timeline-step">
+                                <div class="step-num">Day 3</div>
+                                <div class="step-details">
+                                    <ul id="roadmap-day3-list"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recommendations & Next Retest -->
+                    <div class="strategy-card flex-between">
+                        <div>
+                            <h3>Microsoft Learn Topic Paths</h3>
+                            <div id="learn-recommendations-container" class="learn-list">
+                                <!-- Dynamic items -->
+                            </div>
+                        </div>
+
+                        <div class="next-blueprint-box">
+                            <h3>Next Attempt Settings</h3>
+                            <p>Recommended study hours needed: <strong id="next-hours-val">10-20 hours</strong></p>
+                            <p>Suggested retest date: <strong id="next-retest-val">In 7 days</strong></p>
+                            <p>Target exam blueprint composition:</p>
+                            <div class="blueprint-composition-gauge">
+                                <span class="badge badge-unanswered" id="blueprint-weak-label">60% Weak Topics</span>
+                                <span class="badge badge-answered" id="blueprint-other-label">40% General Topics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Question Review Explorer -->
+            <section class="question-review-section">
+                <h2>Question-by-Question Detailed Review</h2>
+                <div class="review-filters-bar">
+                    <span class="label">Filter By:</span>
+                    <button class="filter-btn active" data-filter="all">All (50)</button>
+                    <button class="filter-btn" data-filter="incorrect">Incorrect</button>
+                    <button class="filter-btn" data-filter="marked">Marked for Review</button>
+                    <button class="filter-btn" data-filter="confident-incorrect">Confident but Incorrect</button>
+                    <button class="filter-btn" data-filter="uncertain-correct">Uncertain but Correct</button>
+                </div>
+
+                <div id="review-questions-list" class="review-questions-list">
+                    <!-- Dynamic question review cards -->
+                </div>
+            </section>
+
+            <div class="actions-panel" style="gap: 15px;">
+                <button id="new-exam-btn" class="action-btn primary-btn medium-btn">▶ Start New Exam</button>
+                <button id="export-report-btn" class="action-btn secondary-btn medium-btn">Download Focus Study Guide</button>
+                <button id="report-exit-btn" class="action-btn ghost-btn medium-btn">Return to Dashboard</button>
+            </div>
+        </main>
+
+        <!-- ================= SYSTEM STATE DISPLAY ================= -->
+        <footer id="system-state-footer" class="system-state-footer">
+            SYSTEM STATE [Question: 0/50 | Answered: 0 | Remaining: 50 | Marked for Review: [] | Objective 1 Questions Seen: 0 | Objective 2 Questions Seen: 0]
+        </footer>
+
+        <!-- ================= CONFIRM SUBMIT MODAL ================= -->
+        <dialog id="submit-modal-dialog" class="submit-modal-dialog">
+            <div class="modal-content">
+                <h2>Submit Exam Session?</h2>
+                <p id="modal-warning-text">You have 0 unanswered questions remaining.</p>
+                <p>Are you sure you want to end the session? You will receive grading and analytics reports immediately.</p>
+                <div class="modal-buttons">
+                    <button id="modal-cancel-btn" class="modal-btn cancel-btn">Cancel</button>
+                    <button id="modal-confirm-btn" class="modal-btn confirm-btn">Confirm Submit</button>
+                </div>
+            </div>
+        </dialog>
+
+    </div>
+
+    <!-- Auto-save toast notification -->
+    <div id="save-toast">✓ Answer saved</div>
+
+    <!-- Application Script -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.env
+
+# SQLite database (contains personal exam history — do not commit)
+ai901_simulator.db
+
+# Legacy question pool (canonical source is database.py — this file is kept for reference only)
+questions.js
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Scratch / dev scripts
+scratch/
+fix_*.py
+check_*.py
+patch_*.py
+find_*.py
+list_*.py
+clean_*.py
+add_*.py
+deep_*.py
+test_*.py

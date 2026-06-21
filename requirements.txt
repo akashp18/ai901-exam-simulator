@@ -1,0 +1,6 @@
+# No external dependencies required.
+# This project uses only Python standard library modules:
+#   http.server, socketserver, json, sqlite3, uuid, urllib.parse, os, mimetypes, random, datetime
+
+# To start the simulator:
+#   python3 server.py
