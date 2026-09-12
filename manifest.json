@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "AI-901 Exam Simulator",
+  "version": "1.0.0",
+  "description": "Companion Chrome extension for the AI-901 Exam Simulator. Practice in the side panel while reading Microsoft Learn documentation.",
+  "permissions": [
+    "sidePanel"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "side_panel": {
+    "default_path": "index.html"
+  },
+  "action": {
+    "default_title": "Open AI-901 Simulator"
+  }
+}

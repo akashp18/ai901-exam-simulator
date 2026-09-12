@@ -1,0 +1,8 @@
+[
+    {"obj": "Objective 1", "diff": "easy", "limit": 4},
+    {"obj": "Objective 1", "diff": "medium", "limit": 11},
+    {"obj": "Objective 1", "diff": "hard", "limit": 6},
+    {"obj": "Objective 2", "diff": "easy", "limit": 6},
+    {"obj": "Objective 2", "diff": "medium", "limit": 14},
+    {"obj": "Objective 2", "diff": "hard", "limit": 9}
+]

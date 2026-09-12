@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Microsoft Azure AI Fundamentals (AI-901) Ultimate Exam Simulator</title>
-    <meta name="description" content="Prepare for the Microsoft AI-901 Certification Exam with our high-fidelity, adaptive Pearson VUE simulation containing 210 realistic questions, 5 question types, CLI controls, and deep performance analytics.">
+    <meta name="description" content="Prepare for the Microsoft AI-901 Certification Exam with our high-fidelity, adaptive Pearson VUE simulation containing 350 realistic questions, 5 question types, CLI controls, and deep performance analytics.">
     <link rel="stylesheet" href="styles.css">
     <!-- Google Fonts for sleek premium look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Highlight.js for code block syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 </head>
 <body class="dark-mode">
 
@@ -29,7 +31,7 @@
                     <h2>Exam Rules & Guidelines</h2>
                     <ul class="clean-list">
                         <li><strong>Passing Score:</strong> 700 out of 1000 points</li>
-                        <li><strong>Exam Length:</strong> 50 Questions (Drawn from a pool of 210)</li>
+                        <li><strong>Exam Length:</strong> <span id="stat-exam-length-val">50 Questions (Drawn from a pool of ...)</span></li>
                         <li><strong>Target Ratios:</strong> 20% Easy, 50% Medium, 30% Hard</li>
                         <li><strong>Objective coverage:</strong> AI Concepts (40-45%), Microsoft Foundry AI Solutions (55-60%)</li>
                         <li><strong>Anti-Repetition Engine:</strong> Generates unique exams prioritizing questions you have not seen or have previously failed.</li>
@@ -67,47 +69,47 @@
                 <div class="pool-stats-grid">
                     <div class="pool-stat-item">
                         <span class="pool-stat-label">Total Questions</span>
-                        <span class="pool-stat-value">210</span>
+                        <span class="pool-stat-value" id="stat-total-val">...</span>
                         <span class="pool-stat-sub">Across all domains</span>
                     </div>
                     <div class="pool-stat-item">
                         <span class="pool-stat-label">Per-Exam Draw</span>
-                        <span class="pool-stat-value">50</span>
+                        <span class="pool-stat-value" id="stat-draw-val">...</span>
                         <span class="pool-stat-sub">Adaptively selected</span>
                     </div>
                     <div class="pool-stat-item">
                         <span class="pool-stat-label">Obj 1 Easy</span>
-                        <span class="pool-stat-value pool-coverage-good">7.0×</span>
-                        <span class="pool-stat-sub">28 pool / 4 draw</span>
+                        <span class="pool-stat-value pool-coverage-good" id="stat-o1e-val">...</span>
+                        <span class="pool-stat-sub" id="stat-o1e-sub">...</span>
                     </div>
                     <div class="pool-stat-item">
                         <span class="pool-stat-label">Obj 1 Medium</span>
-                        <span class="pool-stat-value pool-coverage-good">3.2×</span>
-                        <span class="pool-stat-sub">35 pool / 11 draw</span>
+                        <span class="pool-stat-value pool-coverage-good" id="stat-o1m-val">...</span>
+                        <span class="pool-stat-sub" id="stat-o1m-sub">...</span>
                     </div>
                     <div class="pool-stat-item">
                         <span class="pool-stat-label">Obj 1 Hard</span>
-                        <span class="pool-stat-value pool-coverage-good">2.2×</span>
-                        <span class="pool-stat-sub">13 pool / 6 draw</span>
+                        <span class="pool-stat-value pool-coverage-good" id="stat-o1h-val">...</span>
+                        <span class="pool-stat-sub" id="stat-o1h-sub">...</span>
                     </div>
                     <div class="pool-stat-item">
                         <span class="pool-stat-label">Obj 2 Easy</span>
-                        <span class="pool-stat-value pool-coverage-good">5.6×</span>
-                        <span class="pool-stat-sub">34 pool / 6 draw</span>
+                        <span class="pool-stat-value pool-coverage-good" id="stat-o2e-val">...</span>
+                        <span class="pool-stat-sub" id="stat-o2e-sub">...</span>
                     </div>
                     <div class="pool-stat-item">
                         <span class="pool-stat-label">Obj 2 Medium</span>
-                        <span class="pool-stat-value pool-coverage-good">5.1×</span>
-                        <span class="pool-stat-sub">72 pool / 14 draw</span>
+                        <span class="pool-stat-value pool-coverage-good" id="stat-o2m-val">...</span>
+                        <span class="pool-stat-sub" id="stat-o2m-sub">...</span>
                     </div>
                     <div class="pool-stat-item">
                         <span class="pool-stat-label">Obj 2 Hard</span>
-                        <span class="pool-stat-value pool-coverage-good">3.1×</span>
-                        <span class="pool-stat-sub">28 pool / 9 draw</span>
+                        <span class="pool-stat-value pool-coverage-good" id="stat-o2h-val">...</span>
+                        <span class="pool-stat-sub" id="stat-o2h-sub">...</span>
                     </div>
                     <div class="pool-stat-item">
                         <span class="pool-stat-label">Exam Variety</span>
-                        <span class="pool-stat-value pool-coverage-good">4.2×</span>
+                        <span class="pool-stat-value pool-coverage-good" id="stat-variety-val">...</span>
                         <span class="pool-stat-sub">Unique exams before repeat</span>
                     </div>
                 </div>
@@ -469,7 +471,16 @@
     <!-- Auto-save toast notification -->
     <div id="save-toast">✓ Answer saved</div>
 
-    <!-- Application Script -->
-    <script src="app.js"></script>
+    <!-- Application Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/state.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/report.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
