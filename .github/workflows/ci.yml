@@ -1,0 +1,41 @@
+name: CI Workflow
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  lint-python:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10"]
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pylint
+    - name: Analysing the code with pylint
+      run: |
+        pylint $(git ls-files '*.py') || true
+
+  build-extension:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Package Chrome Extension
+      run: |
+        zip -r ai901-exam-simulator.zip manifest.json background.js index.html styles.css js/ data/
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: chrome-extension
+        path: ai901-exam-simulator.zip
+        retention-days: 14
