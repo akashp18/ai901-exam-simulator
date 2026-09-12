@@ -661,6 +661,11 @@ h1 {
     letter-spacing: 0.5px;
 }
 
+#q-scenario-text {
+    white-space: pre-wrap;
+    font-family: inherit;
+}
+
 .question-prompt h3 {
     font-size: 1.15rem;
     font-weight: 600;
@@ -776,6 +781,19 @@ h1 {
     line-height: 2.2;
     font-size: 1.05rem;
     color: var(--text-secondary);
+}
+
+.hotspot-code-block {
+    background-color: var(--bg-terminal);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    padding: 20px;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    white-space: pre-wrap; /* Preserves newlines and spaces */
+    line-height: 1.8;
+    overflow-x: auto;
 }
 
 .hotspot-select {
@@ -1024,20 +1042,24 @@ h1 {
 
 /* ================= DIALOG / MODAL STYLE ================= */
 .submit-modal-dialog {
-    border: 1px solid var(--border-color);
-    background-color: var(--bg-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(30, 36, 48, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     color: var(--text-primary);
-    border-radius: var(--border-radius-md);
-    padding: 30px;
+    border-radius: var(--border-radius-lg);
+    padding: 35px;
     margin: auto;
-    max-width: 450px;
-    box-shadow: var(--shadow-lg);
+    max-width: 480px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     outline: none;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
 }
 
 .submit-modal-dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(5px);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .modal-content h2 {
@@ -1870,3 +1892,42 @@ h1 {
 
 .pool-coverage-good  { color: var(--success-color); }
 .pool-coverage-ok    { color: var(--warning-color); }
+
+/* Code Block Styles */
+pre code.hljs {
+    border-radius: 8px;
+    padding: 16px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9em;
+    margin: 12px 0;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+    background-color: #1e1e2e;
+}
+p code {
+    background: rgba(255,255,255,0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9em;
+}
+
+/* ================= VIEW TRANSITIONS ================= */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+::view-transition-old(root) {
+  animation-name: fade-out;
+}
+::view-transition-new(root) {
+  animation-name: fade-in;
+}
+@keyframes fade-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-10px); }
+}
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
